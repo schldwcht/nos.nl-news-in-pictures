@@ -84,43 +84,6 @@ foreach ($json_data as $key1 => $value1) {
         if ($key2=="description") {
             $nos_description = $value2;
         }
-        if ($key2=="formats") {
-            foreach ($value2 as $key3 => $value3) {
-                //echo '>'.$value3.'<br>'; //if ($key3=="jpg") {echo $value3."<br>"; }
-                //			     print print_r($value3, true).'<br>';
-                foreach ($value3 as $key4 => $value4) {
-                    if ($key4=="width") {
-                        if ($value4 > 1600) {
-                            //echo $value4."<br>";
-                            $next = true;
-                        } else {
-                            $next = false;
-                        }
-                    }
-                    if ($key4=="url" && $next == true) {
-                        foreach ($value4 as $key5 => $value5) {
-                            if ($key5=="jpg") {
-                                $nos_jpg = $value5;
-                                    
-                                echo $nos_id.'<br>\n';
-                                echo $nos_title.'<br>\n';
-                                echo $nos_description.'<br>\n';
-                                echo $nos_jpg.'<br>\n';
-                                
-                                $imgurl = $nos_jpg;
-                                //$imagename= $nos_id.'-'.str_replace(' ', '', $nos_title).'-'.basename($imgurl);
-                                $imagename= $nos_id.'-'.substr(createSlug($nos_description), 0, 200).'-'.basename($imgurl);
-                                    
-                                if (!file_exists('./nosjpg/'.$imagename)) {
-                                    $image = getimg($imgurl);
-                                    file_put_contents('nosjpg/'.$imagename, $image);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
         if ($key2=="aspect_ratios") {
             foreach ($value2 as $key3 => $value3) {
                 foreach ($value3 as $key4 => $value4) {
@@ -129,8 +92,8 @@ foreach ($json_data as $key1 => $value1) {
                         foreach ($value4 as $key5 => $value5) {
                             foreach ($value5 as $key6 => $value6) {
                                 if ($key6=="width") {
-                                    if ($value6 > 2000) {
-                                        //echo $value5."<br>";
+                                    if ($value6 >= 3840) {
+                                        //echo "-------> ".$value6." <------- <br>";
                                         $next = true;
                                     } else {
                                         $next = false;
