@@ -114,7 +114,7 @@ foreach ($json_data as $key1 => $value1) {
                                             //$imagename= $nos_id.'-'.str_replace(' ', '', $nos_title).'-'.basename($imgurl);
                                             $imagename= $nos_id.'-'.substr(createSlug($nos_description), 0, 200).'-'.basename($imgurl);
                                     
-                                            if (!file_exists('./nosjpg/'.$imagename)) {
+                                            if (((!file_exists('./nosjpg/'.$imagename)) || (filesize('./nosjpg'.$imagename)==0)) {
                                                 $image = getimg($imgurl);
                                                 file_put_contents('nosjpg/'.$imagename, $image);
                                             }
