@@ -2,6 +2,7 @@
 
 ## Background
 It's nice to have a overview of the news in the world not in words but in pictures. The NOS API makes it possible to get exactly this. 
+![NOS 4 september](/originals/example1.jpg)
 
 ## Requirements
 * PHP version 7.2
