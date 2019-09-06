@@ -7,28 +7,34 @@ The NOS, also known as the Dutch Broadcast Foundation, is one of the broadcastin
 
 ![NOS 4 september](/originals/example1.jpg)
 
-## Minimal Requirements
-* A system running PHP version 7.2+ and your system should be able of running a cron job.
-* Storage for the photos, about 10Mb per day.
-* Optional: A picture frame device. 
-
-## Limitations
-* Only the most interesting photos of the day are provided via the NOS API, no historical data is available. It takes time to build a historical archive yourselve.
-* There is no technical documentation available online about the NOS API at the time of writting.
-
 ## Quick start instructions
 1. Simply clone this project on a computer running using:
-`git clone `
+```
+git clone
+```
 1. Run the nos.php file with:
-`php nos.jpg`.
+```
+php nos.jpg
+```
 1. A folder 'nosjpg' will be created automatically and the latest photos are being retrieved automatically. 
 1. (Optional): Add a line to your crontab file to update your local archive over time: 
-`0 * * * * root cd /var/www/vhosts/schildwacht.com/nos && /usr/bin/php nos.php >/dev/null 2>&1`
+```
+0 * * * * root cd /var/www/vhosts/schildwacht.com/nos && /usr/bin/php nos.php >/dev/null 2>&1
+```
 
 ## What the code does
 The code retrieves the available data via the API https://public-api.nos.nl/feed/nieuws-in-beeld.json. 
 Next the json is parsed and only the highest resolution of a photo is being selected. We noticed that the original photos are sometimes of lower resolution and scaled to a higher format by the NOS. For our purposes it doesn't matter as the majority is of high resolution nowadays anyway.
 The image filename is set to the original description that came with the photo via the API. This way it's easy to browse through the image library and see instantly what it is about.
+
+## Minimal requirements
+* A system running PHP version 7.2+ and your system should be able of running a cron job.
+* Storage for the photos, about 10Mb per day.
+* Optional: A picture frame device. 
+
+## Known limitations
+* Only the most interesting photos of the day are provided via the NOS API, no historical data is available. It takes time to build a historical archive yourselve.
+* There is no technical documentation available online about the NOS API at the time of writting.
 
 ## How to contribute
 Please open a pull request if you have additions to the project.
