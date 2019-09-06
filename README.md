@@ -46,7 +46,8 @@ These professionals have contributed valuable insights and code:
 
 ## Frequently Asked Questions (FAQ)
 1. I only see a couple of photos when I run the code for the first time, is that correct?
-Yes. Only the latest photos are download as the there is no complete archive available.
+
+_Yes. Only the latest photos are download as the there is no complete archive available._
 
 ## Need help?
 Open an issue on this repository via Github and follow the issue template questions.
