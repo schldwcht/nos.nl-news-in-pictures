@@ -9,30 +9,6 @@ class NosImageData
     private $elementsArray;
 
     /**
-     * @param $url
-     *
-     * @return bool|string
-     */
-    private function getImage($url)
-    {
-        $headers[]  = 'Accept: image/gif, image/x-bitmap, image/jpeg, image/pjpeg';
-        $headers[]  = 'Connection: Keep-Alive';
-        $headers[]  = 'Content-type: application/x-www-form-urlencoded;charset=UTF-8';
-        $user_agent = 'php';
-        $process    = curl_init($url);
-        curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($process, CURLOPT_HEADER, 0);
-        curl_setopt($process, CURLOPT_USERAGENT, $user_agent); //check here
-        curl_setopt($process, CURLOPT_TIMEOUT, 30);
-        curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($process, CURLOPT_FOLLOWLOCATION, 1);
-        $return = curl_exec($process);
-        curl_close($process);
-
-        return $return;
-    }
-
-    /**
      * @param string $text
      *
      * @return string
@@ -48,8 +24,8 @@ class NosImageData
             '/[éèêë]/u'   => 'e',
             '/[ÉÈÊË]/u'   => 'E',
             '/[óòôõºö]/u' => 'o',
-            '/[ÓÒÔÕÖ]/u'  => 'O',
-            '/[úùûü]/u'   => 'u',
+                '/[ÓÒÔÕÖ]/u'  => 'O',
+                '/[úùûü]/u'   => 'u',
             '/[ÚÙÛÜ]/u'   => 'U',
             '/ç/'         => 'c',
             '/Ç/'         => 'C',
@@ -84,7 +60,7 @@ class NosImageData
     }
 
     /**
-     * 
+     *
      */
     public function getJsonData()
     {
@@ -98,32 +74,26 @@ class NosImageData
     public function getElements()
     {
         foreach ($this->elementsArray as $newsItem) {
-            $image = $this->getImageName($newsItem);
-
-            if ($image) {
-                $this->saveImageName();
-            }
+            $this->getImageName($newsItem);
         }
     }
 
     /**
      * @param $newsItem
-     *
-     * @return bool
      */
     public function getImageName($newsItem)
     {
         $imageElement = array_pop($newsItem['aspect_ratios'][0]['formats']);
 
-        if ($imageElement['width'] < 3840) {
-            return false;
+        if ($imageElement['width'] < 3000) {
+            return;
         }
         $this->fileUrl   = $imageElement['url']['jpg'];
         $this->imageName = $newsItem['id'] . '-' . substr($this->createSlug($newsItem['description']),
                 0,
                 200) . '-' . basename($this->fileUrl); // createSlug fixes issue with OS filename conventions
 
-        return true;
+        $this->saveImageName();
     }
 
     /**
@@ -135,13 +105,39 @@ class NosImageData
             mkdir(basename($this->saveDir));
             echo "* creating directory " . $this->saveDir;
         }
+
         if ((file_exists($this->saveDir . $this->imageName) === false) || (filesize($this->saveDir . $this->imageName) == 0)) {
+            //check whether the file is saved in a previous run.
             $imageData = $this->getImage($this->fileUrl);
             if ($imageData) {
                 file_put_contents(basename($this->saveDir) . "/" . $this->imageName, $imageData);
             }
         }
 
+    }
+
+    /**
+     * @param $url
+     *
+     * @return bool|string
+     */
+    private function getImage($url)
+    {
+        $headers[]  = 'Accept: image/gif, image/x-bitmap, image/jpeg, image/pjpeg';
+        $headers[]  = 'Connection: Keep-Alive';
+        $headers[]  = 'Content-type: application/x-www-form-urlencoded;charset=UTF-8';
+        $user_agent = 'php';
+        $process    = curl_init($url);
+        curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($process, CURLOPT_HEADER, 0);
+        curl_setopt($process, CURLOPT_USERAGENT, $user_agent); //check here
+        curl_setopt($process, CURLOPT_TIMEOUT, 30);
+        curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($process, CURLOPT_FOLLOWLOCATION, 1);
+        $return = curl_exec($process);
+        curl_close($process);
+
+        return $return;
     }
 }
 
