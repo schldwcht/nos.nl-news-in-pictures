@@ -45,7 +45,7 @@ The image filename is set to the original description that came with the photo v
 
 ## Known limitations
 * Only the most interesting photos of the day are provided via the NOS API, no historical data is available. It takes time to build a historical archive yourself.
-* There is no technical documentation available online about the NOS API at the time of writing.
+* There is no documentation available about the endpoint https://public-api.nos.nl at the time of writing.
 
 ## How to contribute
 Please open a pull request if you have additions to the project.
