@@ -35,7 +35,7 @@ You should see an output similar like:
 
 ## What the code does
 The code retrieve the available data via the API https://public-api.nos.nl/feed/nieuws-in-beeld.json.
-Next the json is parsed and only the highest resolution of a photo is being selected. We noticed that the original photos are sometimes of lower resolution and scaled to a higher format by the NOS. For our purposes it doesn't matter as the majority is of high resolution nowadays anyway.
+Next the JSON is parsed and only the highest resolution of a photo is being selected. We noticed that the original photos are sometimes of lower resolution and scaled to a higher format by the NOS. For our purposes it doesn't matter as the majority is of high resolution nowadays anyway.
 The image filename is set to the original description that came with the photo via the API. This way it's easy to browse through the image library and see instantly what it is about.
 
 ## Minimal requirements
