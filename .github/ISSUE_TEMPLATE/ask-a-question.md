@@ -1,6 +1,6 @@
 ---
 name: Ask a question
-about: Ask a related question.
+about: Ask a question that is related to this project.
 title: "[QUESTION] Please summarize your question here"
 labels: question
 assignees: schldwcht
