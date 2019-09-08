@@ -69,7 +69,7 @@ These professionals have contributed valuable insights and program code:
 _Yes. Only the latest photos are download as the there is no complete archive available._
 
 ## Need help?
-Open an issue on this repository via GitHub and follow the issue template questions.
+Open an issue via GitHub and follow the issue template.
 
 ___
 License: [CC-BY](https://creativecommons.org/licenses/by/3.0/). The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. The example photo used in this README.md is copyright by https://github.com/schldwcht.
