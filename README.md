@@ -32,6 +32,7 @@ You should see an output similar like:
 ```
 0 * * * * root cd /var/www/vhosts/nos.nl/nos && /usr/bin/php nos.php >/dev/null 2>&1
 ```
+1. (Optional): Change the property ``` $minimumResolution ``` in ``` nos.php ``` if you want to save lower resolution images. The default is ``` 3000 ``` pixels or more in order to save an image. 
 
 ## What the code does
 The code retrieve the available data via the API https://public-api.nos.nl/feed/nieuws-in-beeld.json.
