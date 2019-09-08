@@ -1,7 +1,7 @@
 ---
 name: Ask a question
 about: Ask a related question.
-title: "[QUESTION]"
+title: "[QUESTION] Please summarize your question here"
 labels: question
 assignees: schldwcht
 
