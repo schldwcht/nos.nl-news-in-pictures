@@ -49,7 +49,7 @@ The image filename is set to the original description that came with the photo v
 * There is no documentation available about the endpoint https://public-api.nos.nl at the time of writing.
 
 ## How to contribute
-Please open a pull request if you have additions to the project.
+Please follow the Object Calisthenics rules for the coding standard, see https://github.com/object-calisthenics/phpcs-calisthenics-rules and open a pull request if you have additions to the project.
 1. An item on the road map is to retrieve all photos on one day published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve the 'missing' photos. The filename has a known pattern:
 ```
 https://nos.nl/data/image/2019/09/07/575618/3840x2160a.jpg
@@ -59,7 +59,7 @@ The number 575618 is the id number of the photo in this example. The filename '3
 
 ## Acknowledgments
 These professionals have contributed valuable insights and program code:
-- Dennis van der Hammen - TIG
+- [Dennis van der Hammen - TIG](https://github.com/tig-dennisvanderhammen)
 
 ## Frequently Asked Questions (FAQ)
 1. I only see a couple of photos when I run the code for the first time, is that correct?
@@ -69,5 +69,5 @@ _Yes. Only the latest photos are download as the there is no complete archive av
 ## Need help?
 Open an issue on this repository via GitHub and follow the issue template questions.
 
-## License
-The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. It is not allowed to use or include this data in commercial products or offerings. The example photo used in this README.md is copyright by https://github.com/schldwcht.
+___
+License: [CC-BY](https://creativecommons.org/licenses/by/3.0/). The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. It is not allowed to use or include this data in commercial products or offerings. The example photo used in this README.md is copyright by https://github.com/schldwcht.
