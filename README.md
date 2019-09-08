@@ -69,4 +69,4 @@ _Yes. Only the latest photos are download as the there is no complete archive av
 Open an issue on this repository via GitHub and follow the issue template questions.
 
 ## License
-The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. It is not allowed to use or include this data in commercial products or offerings.
+The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. It is not allowed to use or include this data in commercial products or offerings. The photo used in this GitHub project is copyright by https://github.com/schldwcht.
