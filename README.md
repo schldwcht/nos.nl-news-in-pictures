@@ -49,15 +49,15 @@ The image filename is set to the original description that came with the photo v
 
 ## How to contribute
 Please open a pull request if you have additions to the project.
-1. If you care about the original meta data feel free to store the JSON data in a file or database yourself and it would be great if you open a pull request.
-1. Another item on the roadmap is to retrieve all photos published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve all photos. The filename has a known pattern: 
+1. An item on the roadmap is to retrieve all photos on one day published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve the 'missing' photos. The filename has a known pattern: 
 ```
 https://nos.nl/data/image/2019/09/07/575618/3840x2160a.jpg
 ```
 The number 575618 is the id number of the photo in this example. The filename '3840x2160a.jpg' is always the same (for this resolution).
+1. If you care about the original meta data feel free to store the JSON data in a file or database yourself and it would be great if you open a pull request.
 
 ## Acknowledgements
-These professionals have contributed valuable insights and code:
+These professionals have contributed valuable insights and program code:
 - Dennis van der Hammen - TIG
 
 ## Frequently Asked Questions (FAQ)
