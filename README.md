@@ -52,12 +52,12 @@ The image filename is set to the original description that came with the photo v
 It would be awesome if you constribute to this project. Please follow the code of conduct https://www.contributor-covenant.org/version/1/4/code-of-conduct when doing so.
 The coding standard for this project is to use the Object Calisthenics rules, see https://github.com/object-calisthenics/phpcs-calisthenics-rules. Open a pull request if you have additions to the project.
 Where you can help:
-1. An item on the road map is to retrieve all photos on one day published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve the 'missing' photos. The filename has a known pattern:
+* An item on the road map is to retrieve all photos on one day published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve the 'missing' photos. The filename has a known pattern:
 ```
 https://nos.nl/data/image/2019/09/07/575618/3840x2160a.jpg
 ```
 The number 575618 is the id number of the photo in this example. The filename '3840x2160a.jpg' is always the same (for this resolution).
-1. The original metadata could be stored in a file or database and it would be great if you open a pull request for that.
+* The original metadata could be stored in a file or database and it would be great if you open a pull request for that.
 
 ## Acknowledgments
 These professionals have contributed valuable insights and program code:
