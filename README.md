@@ -9,29 +9,29 @@ The NOS https://nos.nl/, also known as the Dutch Broadcast Foundation, is one of
 
 ## Quick start instructions
 1. Simply clone this project on a computer running using:
-'''
+```
 git clone <repository>
 cd <directory repository>
-'''
+```
 1. Run the nos.php file with:
-'''
+```
 php nos.php
-'''
+```
 1. A sub directory 'news-in-pictures' will be created for the first time and the latest photos are being retrieved automatically.
 
 You should see an output similar like:
-'''
+```
 * Start
 > Scanning id 575809
 + Saving [filename]
 ...
 * Done
-'''
+```
 
 1. (Optional): Add a line to your crontab file to update your local archive, we have set it to every hour:
-'''
+```
 0 * * * * root cd /var/www/vhosts/nos.nl/nos && /usr/bin/php nos.php >/dev/null 2>&1
-'''
+```
 
 ## What the code does
 The code retrieve the available data via the API https://public-api.nos.nl/feed/nieuws-in-beeld.json.
@@ -50,9 +50,9 @@ The image filename is set to the original description that came with the photo v
 ## How to contribute
 Please open a pull request if you have additions to the project.
 1. An item on the road map is to retrieve all photos on one day published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve the 'missing' photos. The filename has a known pattern:
-'''
+```
 https://nos.nl/data/image/2019/09/07/575618/3840x2160a.jpg
-'''
+```
 The number 575618 is the id number of the photo in this example. The filename '3840x2160a.jpg' is always the same (for this resolution).
 1. If you care about the original metadata feel free to store the JSON data in a file or database yourself and it would be great if you open a pull request.
 
