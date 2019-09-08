@@ -10,16 +10,27 @@ The NOS, also known as the Dutch Broadcast Foundation, is one of the broadcastin
 ## Quick start instructions
 1. Simply clone this project on a computer running using:
 ```
-git clone
+git clone <respository>
+cd <directory repository>
 ```
 1. Run the nos.php file with:
 ```
-php nos.jpg
+php nos.php
 ```
-1. A folder 'nosjpg' will be created automatically and the latest photos are being retrieved automatically. 
-1. (Optional): Add a line to your crontab file to update your local archive over time: 
+1. A subdirectory 'news-in-pictures' will be created for the first time and the latest photos are being retrieved automatically.
+
+You should see an output similar like:
 ```
-0 * * * * root cd /var/www/vhosts/schildwacht.com/nos && /usr/bin/php nos.php >/dev/null 2>&1
+* Start
+> Scanning id 575809
++ Saving [filename]
+...
+* Done
+```
+
+1. (Optional): Add a line to your crontab file to update your local archive, we have set it to every hour: 
+```
+0 * * * * root cd /var/www/vhosts/nos.nl/nos && /usr/bin/php nos.php >/dev/null 2>&1
 ```
 
 ## What the code does
@@ -28,9 +39,9 @@ Next the json is parsed and only the highest resolution of a photo is being sele
 The image filename is set to the original description that came with the photo via the API. This way it's easy to browse through the image library and see instantly what it is about.
 
 ## Minimal requirements
-* A system running PHP version 7.2+ and your system should be able of running a cron job.
-* Storage for the photos, about 10Mb per day.
-* Optional: A picture frame device. 
+* A system running PHP version 7.2+
+* Storage for the photos, about 10Mb per day
+* Optional: A picture frame device with a slideshow function
 
 ## Known limitations
 * Only the most interesting photos of the day are provided via the NOS API, no historical data is available. It takes time to build a historical archive yourselve.
@@ -38,7 +49,12 @@ The image filename is set to the original description that came with the photo v
 
 ## How to contribute
 Please open a pull request if you have additions to the project.
-If you care about the original meta data (and others) feel free to store the JSON data in a file or database yourself and it would be great if you open a pull request. 
+1. If you care about the original meta data feel free to store the JSON data in a file or database yourself and it would be great if you open a pull request.
+1. Another item on the roadmap is to retrieve all photos published by the NOS regardless of the selected ones. There is no known endpoint for that, so based on the id numbers using the nieuws-in-beeld.json it would be able to guess the missing numbers and retrieve all photos. The filename has a known pattern: 
+```
+https://nos.nl/data/image/2019/09/07/575618/3840x2160a.jpg
+```
+The number 575618 is the id number of the photo in this example. The filename '3840x2160a.jpg' is always the same (for this resolution).
 
 ## Acknowledgements
 These professionals have contributed valuable insights and code:
