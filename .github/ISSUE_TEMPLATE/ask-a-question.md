@@ -7,9 +7,9 @@ assignees: schldwcht
 
 ---
 
-<!-- #################################################################
+<!-- ################################################################
         IGNORING THE TEMPLATE BELOW WILL RESULT IN ISSUE CLOSURE AS INCOMPLETE
-        ################################################################# -->
+        ################################################################ -->
 
 **Question**
 Ask your question in an arbitrary form without insulting someone. Please make sure it's worded well enough to be understood and remove this line.
