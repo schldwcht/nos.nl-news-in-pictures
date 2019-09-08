@@ -7,11 +7,9 @@ assignees: schldwcht
 
 ---
 
-<!--
-############################################################################
- WARNING! IGNORING THE FOLLOWING TEMPLATE WILL RESULT IN ISSUE CLOSED AS INCOMPLETE
-############################################################################
--->
+<!-- #################################################################
+        IGNORING THE TEMPLATE BELOW WILL RESULT IN ISSUE CLOSURE AS INCOMPLETE
+        ################################################################# -->
 
 **To Reproduce**
 Steps to reproduce the behavior:
