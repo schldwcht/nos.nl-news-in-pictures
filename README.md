@@ -1,4 +1,4 @@
-# Mission statement
+# Project mission statement
 Ever wanted to see the most interesting news of the year in pictures selected by editors of one of the best news agencies in world?
 That's what this project is all about: A private World Press Exhibition at home.
 
