@@ -2,8 +2,9 @@
 
 class NosImageData
 {
-    private $saveDir = './nosjpg/';
-    private $apiUrl  = "https://public-api.nos.nl/feed/nieuws-in-beeld.json";
+    private $saveDir           = './news-in-pictures/';
+    private $apiUrl            = "https://public-api.nos.nl/feed/nieuws-in-beeld.json";
+    private $minimumResolution = 3000; // minimum resolution in width of images to retrieve, in pixels
     private $fileUrl;
     private $imageName;
     private $imageIPTCData;
@@ -75,6 +76,7 @@ class NosImageData
     public function getElements()
     {
         foreach ($this->elementsArray as $newsItem) {
+            echo "> Scanning id " . $newsItem['id'] . "\n";
             $this->getImageName($newsItem);
         }
     }
@@ -138,7 +140,7 @@ class NosImageData
     {
         $imageElement = array_pop($newsItem['aspect_ratios'][0]['formats']);
 
-        if ($imageElement['width'] < 3000) {
+        if ($imageElement['width'] < $this->minimumResolution) {
             return;
         }
         $this->fileUrl   = $imageElement['url']['jpg'];
@@ -155,14 +157,25 @@ class NosImageData
      */
     public function embedIPTCData()
     {
-        if (extension_loaded('gd')) {
-            // Embed the IPTC data
-            $imageContent = IPTCembed($this->imageIPTCData, $this->saveDir . $this->imageName);
+        // Embed the IPTC data
+        $imageContent = IPTCembed($this->imageIPTCData, $this->saveDir . $this->imageName);
 
-            // Write the new image data out to the file.
-            $fp = fopen($this->saveDir . $this->imageName, "wb");
-            fwrite($fp, $imageContent);
-            fclose($fp);
+        // Write the new image data out to the file.
+        $fp = fopen($this->saveDir . $this->imageName, "wb");
+        fwrite($fp, $imageContent);
+        fclose($fp);
+    }
+
+    /**
+     *
+     */
+    public function retrieveImage()
+    {
+        $imageData = $this->getImage($this->fileUrl);
+        if ($imageData) {
+            echo "+ Saving " . $this->imageName . "\n";
+            file_put_contents(basename($this->saveDir) . "/" . $this->imageName, $imageData);
+            $this->embedIPTCData();
         }
     }
 
@@ -173,16 +186,12 @@ class NosImageData
     {
         if (is_dir(basename($this->saveDir)) === false) {
             mkdir(basename($this->saveDir));
-            echo "* creating directory " . $this->saveDir;
+            echo "* Creating directory " . $this->saveDir . "\n";
         }
 
         if ((file_exists($this->saveDir . $this->imageName) === false) || (filesize($this->saveDir . $this->imageName) == 0)) {
             //check whether the file is saved in a previous run.
-            $imageData = $this->getImage($this->fileUrl);
-            if ($imageData) {
-                file_put_contents(basename($this->saveDir) . "/" . $this->imageName, $imageData);
-                $this->embedIPTCData();
-            }
+            $this->retrieveImage();
         }
 
     }
@@ -212,6 +221,10 @@ class NosImageData
     }
 }
 
+echo "* Start" . "\n";
+
 $obj = new NosImageData;
 $obj->getJsonData();
 $obj->getElements();
+
+echo "* Done" . "\n";
