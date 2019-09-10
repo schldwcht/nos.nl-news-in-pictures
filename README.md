@@ -8,10 +8,10 @@ The NOS https://nos.nl/, also known as the Dutch Broadcast Foundation, is one of
 ![NOS 4 september](/originals/example1.jpg)
 
 ## Quick start instructions
-1. Simply clone this project on a computer with GIT:
+1. Simply clone this project in a terminal on a computer with Git:
 ```
-git clone <repository>
-cd <directory repository>
+git clone git@github.com:schldwcht/nos.nl-news-in-pictures.git
+cd nos.nl-news-in-pictures
 ```
 1. Run the nos.php file with:
 ```
