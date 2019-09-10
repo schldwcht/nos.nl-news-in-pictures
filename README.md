@@ -48,7 +48,7 @@ The image filename is set to the original description that came with the photo v
 * Only the most interesting photos of the day are provided via the NOS API, no historical data is available. It takes time to build a historical archive yourself.
 * There is no documentation available about the endpoint https://public-api.nos.nl at the time of writing.
 
-## How to contribute &#1F306;
+## How to contribute
 It would be awesome if you contribute to this project. Please follow the code of conduct https://www.contributor-covenant.org/version/1/4/code-of-conduct when doing so.
 The coding standard for this project is to use the Object Calisthenics rules, see https://github.com/object-calisthenics/phpcs-calisthenics-rules. Open a pull request if you have additions to the project.
 Where you can help:
