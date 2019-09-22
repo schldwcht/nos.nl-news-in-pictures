@@ -1,5 +1,9 @@
 <?php
 
+namespace Schldwcht\Newsinpictures;
+
+require_once('Service/Slug.php');
+
 class NosImageData
 {
     private $saveDir           = './news-in-pictures/';
@@ -10,69 +14,12 @@ class NosImageData
     private $imageIPTCData;
     private $elementsArray;
 
-    /**
-     * @param string $text
-     *
-     * @return string
-     *
-     */
-    private function cleanString($text)
-    {
-        $utf8 = array(
-            '/[áàâãªä]/u' => 'a',
-            '/[ÁÀÂÃÄ]/u'  => 'A',
-            '/[ÍÌÎÏ]/u'   => 'I',
-            '/[íìîï]/u'   => 'i',
-            '/[éèêë]/u'   => 'e',
-            '/[ÉÈÊË]/u'   => 'E',
-            '/[óòôõºö]/u' => 'o',
-            '/[ÓÒÔÕÖ]/u'  => 'O',
-            '/[úùûü]/u'   => 'u',
-            '/[ÚÙÛÜ]/u'   => 'U',
-            '/ç/'         => 'c',
-            '/Ç/'         => 'C',
-            '/ñ/'         => 'n',
-            '/Ñ/'         => 'N',
-            '/–/'         => '-', // UTF-8 hyphen to "normal" hyphen
-            '/[’‘‹›‚]/u'  => ' ', // Literally a single quote
-            '/[“”«»„]/u'  => ' ', // Double quote
-            '/ /'         => ' ', // nonbreaking space (equiv. to 0x160)
-        );
-
-        return preg_replace(array_keys($utf8), array_values($utf8), $text);
-    }
-
-    /**
-     * @param $slug
-     *
-     * @return string
-     */
-    private function createSlug($slug)
-    {
-        $slug                        = $this->cleanString($slug);
-        $lettersNumbersSpacesHyphens = '/[^\-\s\pN\pL]+/u';
-        $spacesDuplicateHypens       = '/[\-\s]+/';
-
-        $slug = preg_replace($lettersNumbersSpacesHyphens, '', $slug);
-        $slug = preg_replace($spacesDuplicateHypens, '-', $slug);
-
-        $slug = trim($slug, '-');
-
-        return mb_strtolower($slug, 'UTF-8');
-    }
-
-    /**
-     *
-     */
     public function getJsonData()
     {
         $json                = file_get_contents($this->apiUrl);
         $this->elementsArray = json_decode($json, true);
     }
 
-    /**
-     *
-     */
     public function getElements()
     {
         foreach ($this->elementsArray as $newsItem) {
@@ -144,7 +91,7 @@ class NosImageData
             return;
         }
         $this->fileUrl   = $imageElement['url']['jpg'];
-        $this->imageName = $newsItem['id'] . '-' . substr($this->createSlug($newsItem['description']),
+        $this->imageName = $newsItem['id'] . '-' . substr((new Service\Slug)->createSlug($newsItem['description']),
                 0,
                 200) . '-' . basename($this->fileUrl); // createSlug fixes issue with OS filename conventions
 
@@ -152,9 +99,6 @@ class NosImageData
         $this->saveImageName();
     }
 
-    /**
-     *
-     */
     public function embedIPTCData()
     {
         // Embed the IPTC data
@@ -166,9 +110,6 @@ class NosImageData
         fclose($fp);
     }
 
-    /**
-     *
-     */
     public function retrieveImage()
     {
         $imageData = $this->getImage($this->fileUrl);
@@ -179,9 +120,6 @@ class NosImageData
         }
     }
 
-    /**
-     *
-     */
     public function saveImageName()
     {
         if (is_dir(basename($this->saveDir)) === false) {
@@ -219,6 +157,11 @@ class NosImageData
 
         return $return;
     }
+}
+
+if (!extension_loaded('mbstring')) {
+    echo "* Cannot start, php-mbstring missing";
+    die();
 }
 
 echo "* Start" . "\n";
