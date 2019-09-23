@@ -2,6 +2,7 @@
 
 namespace Schldwcht\Newsinpictures;
 
+use mysql_xdevapi\Exception;
 use Schldwcht\Newsinpictures\Service\Slug;
 
 require_once('Service/Slug.php');
@@ -162,8 +163,7 @@ class NosImageData
 }
 
 if (!extension_loaded('mbstring')) {
-    echo "* Cannot start, php-mbstring missing";
-    die();
+    throw new Exception("* Cannot start, php-mbstring missing");
 }
 
 echo "* Start" . "\n";
