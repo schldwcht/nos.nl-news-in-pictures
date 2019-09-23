@@ -2,6 +2,8 @@
 
 namespace Schldwcht\Newsinpictures;
 
+use Schldwcht\Newsinpictures\Service\Slug;
+
 require_once('Service/Slug.php');
 
 class NosImageData
@@ -90,9 +92,9 @@ class NosImageData
         if ($imageElement['width'] < $this->minimumResolution) {
             return;
         }
+        $descSlug        = Slug::createSlug($newsItem['description']);
         $this->fileUrl   = $imageElement['url']['jpg'];
-        $this->imageName = $newsItem['id'] . '-' . substr((new Service\Slug)->createSlug($newsItem['description']),
-                0,
+        $this->imageName = $newsItem['id'] . '-' . substr($descSlug, 0,
                 200) . '-' . basename($this->fileUrl); // createSlug fixes issue with OS filename conventions
 
         $this->setIptcTags($newsItem); // in order to store meta info about the photo in the image, prepare the Iptc tags
@@ -127,11 +129,11 @@ class NosImageData
             echo "* Creating directory " . $this->saveDir . "\n";
         }
 
-        if ((file_exists($this->saveDir . $this->imageName) === false) || (filesize($this->saveDir . $this->imageName) == 0)) {
+        if ((file_exists($this->saveDir . $this->imageName) === false)
+            || (filesize($this->saveDir . $this->imageName) == 0)) {
             //check whether the file is saved in a previous run.
             $this->retrieveImage();
         }
-
     }
 
     /**

@@ -10,7 +10,7 @@ class Slug
      * @return string
      *
      */
-    private function cleanString($text)
+    public static function cleanString($text)
     {
         $utf8 = array(
             '/[áàâãªä]/u' => 'a',
@@ -41,9 +41,9 @@ class Slug
      *
      * @return string
      */
-    public function createSlug($slug)
+    public static function createSlug($slug)
     {
-        $slug                        = $this->cleanString($slug);
+        $slug                        = Slug::cleanString($slug);
         $lettersNumbersSpacesHyphens = '/[^\-\s\pN\pL]+/u';
         $spacesDuplicateHypens       = '/[\-\s]+/';
 
@@ -54,5 +54,4 @@ class Slug
 
         return mb_strtolower($slug, 'UTF-8');
     }
-
 }
