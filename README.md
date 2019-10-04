@@ -73,4 +73,4 @@ _Yes. Only the latest photos are download as the there is no complete archive av
 Open an issue via GitHub and follow the issue template steps.
 
 ___
-License: [CC-BY](https://creativecommons.org/licenses/by/3.0/). The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. The example photo used in this README.md is copyright by https://github.com/schldwcht.
+The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. The example photo used in this README.md is copyright by https://github.com/schldwcht.
