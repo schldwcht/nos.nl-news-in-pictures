@@ -1,4 +1,4 @@
-![GitHub release](https://img.shields.io/github/release/schldwcht/nos.nl-news-in-pictures)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/schldwcht/nos.nl-news-in-pictures?include_prereleases)
 [![Build Status](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/badges/build.png?b=master)](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/?branch=master)
 ![license](https://img.shields.io/github/license/schldwcht/nos.nl-news-in-pictures)
