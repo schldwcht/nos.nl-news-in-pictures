@@ -1,3 +1,9 @@
+![GitHub release](https://img.shields.io/github/release/schldwcht/nos.nl-news-in-pictures)
+[![Build Status](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/badges/build.png?b=master)](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/schldwcht/nos.nl-news-in-pictures/?branch=master)
+![license](https://img.shields.io/github/license/schldwcht/nos.nl-news-in-pictures)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+
 # Project mission statement
 Ever wanted to see the most interesting news of the year in pictures selected by editors of one of the best news agencies in world?
 That's what this project is all about: A glance on what's happening in the world through your picture frame at home.
