@@ -80,5 +80,8 @@ _Yes. Only the latest photos are download as the there is no complete archive av
 ## Need help?
 Open an issue via GitHub and follow the issue template steps.
 
+## Thanks
+If you like this it would be awesome if you'd treat me to a coffee https://www.buymeacoffee.com/schildwacht 
+<a href="https://www.buymeacoffee.com/schildwacht" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 ___
 The information and code of this repository is provided free of charge for personal use, without warranty or assumed liability of any kind. The example photo used in this README.md is copyright by https://github.com/schldwcht.
