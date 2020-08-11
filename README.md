@@ -50,7 +50,7 @@ The image filename is set to the original description that came with the photo v
 ## Minimal requirements
 * A system running PHP version 7.2+
 * php-mbstring enabled
-* Storage for the photos, about 10Mb per day
+* Storage for the photos, at least 10Mb per day depending on the selected resolution
 * Optional: A picture frame device with a slideshow function, a Raspberry PI can be used for this as well in combination with a monitor. We bought an 8-inch monitor on https://www.beetronics.nl/8-inch-monitor (not cheap, but better than the ones we ordered via Amazon).
 
 ## Known limitations
